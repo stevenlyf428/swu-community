@@ -1,4 +1,4 @@
-package com.example.community.demo;
+package com.swu.community;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
