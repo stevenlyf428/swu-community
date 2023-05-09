@@ -1,5 +1,6 @@
 package com.swu.community.controller;
 
+import com.swu.community.annotation.LoginRequired;
 import com.swu.community.entity.User;
 import com.swu.community.service.UserService;
 import com.swu.community.util.CommunityUtil;
@@ -42,11 +43,13 @@ public class UserController {
     @Autowired
     private HostHolder hostHolder;
 
+    @LoginRequired
     @RequestMapping(path = "/setting", method = RequestMethod.GET)
     public String getSettingPage() {
         return "/site/setting";
     }
 
+    @LoginRequired
     @RequestMapping(path = "/upload", method = RequestMethod.POST)
     public String uploadHeader(MultipartFile headerImage, Model model) {
         // 异常判断
