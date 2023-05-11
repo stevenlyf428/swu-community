@@ -23,6 +23,12 @@ public class LoginTicketInterceptor implements HandlerInterceptor {
     @Autowired
     private HostHolder hostHolder; //使用ThreadLocal线程隔离的工具类，
 
+    /*
+     * 拦截器
+     * 负责检查请求的Http是否包含用户凭证，从而获取用户信息
+     * ticket即cookie
+     * ThreaLocal通过ticket获取用户信息即session
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String ticket = CookieUtil.getValue(request, "ticket");

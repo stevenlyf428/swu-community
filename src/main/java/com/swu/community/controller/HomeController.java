@@ -3,6 +3,7 @@ package com.swu.community.controller;
 import com.swu.community.entity.DiscussPost;
 import com.swu.community.entity.Page;
 import com.swu.community.entity.User;
+import com.swu.community.service.CommentService;
 import com.swu.community.service.DiscussPostService;
 import com.swu.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class HomeController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CommentService commentService;
 
     @RequestMapping(path = "/index", method = RequestMethod.GET)
     public String getIndexPage(Model model, Page page) {
@@ -45,4 +49,12 @@ public class HomeController {
         model.addAttribute("discussPosts", discussPosts);
         return "/index";
     }
+
+    @RequestMapping(path = "/error", method = RequestMethod.GET)
+    public String getErrorPage() {
+        return "/error/500";
+    }
+
+
+
 }
